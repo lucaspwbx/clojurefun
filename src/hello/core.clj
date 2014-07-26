@@ -116,3 +116,63 @@
 (generic-doublificate {})
 (generic-doublificate [])
 (generic-doublificate {:a 1})
+
+(and true true)
+(and true false)
+
+(or true false)
+(or false false)
+
+(not true)
+(not false)
+
+(let [x 42]
+  (+ x x))
+
+(defn hipotenusa [x y]
+  (let [xx (* x x)
+        yy (* y y)]
+    (Math/sqrt (+ xx yy))))
+
+(hipotenusa 2 10)
+
+(Math/sqrt (+ 2 4))
+
+(defn do-a-thing [x]
+  (Math/pow (+ x x) (+ x x)))
+
+(defn do-a-thing-dois [x]
+  (let [xx (+ x x)]
+  (Math/pow xx xx)))
+
+(do-a-thing-dois 6)
+
+(let [a 10
+      b (+ a 8)]
+  (+ a b))
+
+[1 2 3]
+[:foo 42 "bar" (+ 2 3)]
+
+(get [:a :b :c] 1)
+
+(let [a [1 2 3]]
+      (count a))
+
+(defn spiff [v]
+  (+ (get v 0) (get v 2)))
+
+(spiff [1 2 3])
+(spiff [1 2 3 4 5 6])
+(spiff [1 2])
+(spiff [])
+
+(defn spiff2 [v]
+  (cond
+       (> (count v) 2) (+ (get v 0) (get v 2))
+       :else 0))
+
+(spiff2 [1 2 3])
+(spiff2 [1 2 3 4 5 6])
+(spiff2 [1 2])
+(spiff2 [])
